@@ -29,3 +29,4 @@ sed -i "s#NFS_FRONTEND_NETWORK#$NFS_FRONTEND_NETWORK#" /etc/exports
 
 # Reiniciamos el servvicio de NFS
 systemctl restart nfs-kernel-server
+
