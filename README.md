@@ -48,3 +48,36 @@ sed -i "s#NFS_FRONTEND_NETWORK#$NFS_FRONTEND_NETWORK#" /etc/exports
 systemctl restart nfs-kernel-server
 ~~~
 ### Una vez ejecutado este script nos vamos a alguno de los dos frontales que va a actuar de cliente nfs y ejecutamos el script del cliente nfs que paso por paso es este:
+#### Muestra todos los comandos que se van ejecutando
+~~~
+set -ex
+~~~
+#### Actualizamos los repositorios
+~~~
+apt update
+~~~
+#### Actualizamos los paquetes
+~~~
+#apt upgrade -y
+~~~
+#### Importamos el archivo .env 
+~~~
+source .env
+~~~
+#### Instalamos el nfs de cliente
+~~~
+apt install nfs-common -y
+~~~
+#### Creamos el punto de montaje 
+~~~
+mount $NFS_SERVER_PRIVATE_IP:/var/www/html /var/www/html
+~~~
+#### Añadimos iuna linea dde configuración al archivo /etc/fstab
+#### para que el punto de montaje se monte automaticamente
+#### después de cada reinicio
+~~~
+echo "$NFS_SERVER_PRIVATE_IP:/var/www/html /var/www/html  nfs auto,nofail,noatime,nolock,intr,tcp,actimeo=1800 0 0" >> /etc/fstab
+~~~
+### Antes de esto tenemos que tener ocnfigurado la carpeta exports con el archivo exports en la carpeta /etc
+#### El archivo se vería así:
+ 
