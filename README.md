@@ -80,4 +80,7 @@ echo "$NFS_SERVER_PRIVATE_IP:/var/www/html /var/www/html  nfs auto,nofail,noatim
 ~~~
 ### Antes de esto tenemos que tener ocnfigurado la carpeta exports con el archivo exports en la carpeta /etc
 #### El archivo se vería así:
- 
+~~~
+/var/www/html NFS_FRONTEND_NETWORK(rw,sync,no_root_squash,no_subtree_check)
+~~~
+#### El nfs_frontend_network lo buscaremos y remplazaremos por la ip privada del servidor nfs
