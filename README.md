@@ -83,4 +83,5 @@ echo "$NFS_SERVER_PRIVATE_IP:/var/www/html /var/www/html  nfs auto,nofail,noatim
 ~~~
 /var/www/html NFS_FRONTEND_NETWORK(rw,sync,no_root_squash,no_subtree_check)
 ~~~
-#### El nfs_frontend_network lo buscaremos y remplazaremos por la ip privada del servidor nfs
+#### El nfs_frontend_network lo buscaremos y remplazaremos por la red de la ip privada de los frontend
+### Y ya estaría instaladoo el servidor y el cliente nfs y tenemos configurado la carpeta /etc/fstab para montar automáticamente el directorio al iniciar el sistema.
