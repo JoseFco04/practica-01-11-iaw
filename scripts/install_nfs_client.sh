@@ -18,7 +18,7 @@ apt install nfs-common -y
 # Creamos el punto de montaje 
 mount $NFS_SERVER_PRIVATE_IP:/var/www/html /var/www/html
 
-# Añadimos iuna linea dde configuración al archivo /etc/fstab
+# Añadimos una linea de configuración al archivo /etc/fstab
 # para que el punto de montaje se monte automaticamente
 # después de cada reinicio
 
