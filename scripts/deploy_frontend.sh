@@ -69,14 +69,10 @@ wp config create \
   wp rewrite structure '/%postname%/' --path=/var/www/html --allow-root
 
   # 
-  wp option update wh1_page 'acceso' --path=/var/www/html --allow-root
+  wp option update whl_page 'acceso' --path=/var/www/html --allow-root
 
-  #
-  cp ../htaccess/.htaccess /var/www/html
-
-  # Modificamos el propietario y el grupo del directorio /var/www/html
-  chown -R www-data:www-data /var/www/html
-
+  # Configuramos la variable HTTPS = on
+  sed -i "/COLLATE/a \$_SERVER[]'HTTPS'] = 'on';" /var/www/html/wp-config.php
   # Copiamos el nuevo archivo .htaccess
   cp ../htaccess/.htaccess /var/www/html
 
